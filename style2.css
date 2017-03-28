@@ -1,0 +1,99 @@
+html,
+body {
+	min-width: 800px;
+	margin: 0;
+	padding: 0;
+}
+.header {
+	padding: 40px 0;
+	background-color: lightgrey;
+	z-index: 5;
+}
+.slider {
+	position: relative;
+	width: 600px;
+	height: 300px;
+	margin: 0 auto;
+	border: 1px solid red;
+}
+.slider input {
+	position: absolute;
+	opacity: 0;
+}
+.slider--controls {
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	width: 200px;
+	height: 30px;
+	margin-left: -100px;
+	text-align: center;
+	z-index: 3;
+}
+.slider--controls label {
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	margin: 0 4px;
+	border: 4px solid black;
+	border-radius: 50%;
+	background-color: red;
+	vertical-align: bottom;
+	cursor: pointer;
+	
+}
+#btn-1:checked ~ .slider--controls label[for="btn-1"],
+#btn-2:checked ~ .slider--controls label[for="btn-2"],
+#btn-3:checked ~ .slider--controls label[for="btn-3"],
+#btn-4:checked ~ .slider--controls label[for="btn-4"] 
+{
+	background-color: green; 
+}
+.slide {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin-left: 0px;
+	/*margin-left: 600px;*/
+	overflow: hidden;
+	background-size: 100%;
+	transition: transform 0.9s ease-out 0;
+  	will-change: transform;
+}
+.slide:nth-child(1) {
+	background-image: url('img/red_wine.jpg');
+}
+.slide:nth-child(2) {
+	background-image: url('img/red_wine_1.jpg');
+	background-position: 100% 0;
+}
+.slide:nth-child(3) {
+	background-image: url('img/red_wine_2.jpg');
+	background-position: 100% 0;
+}
+.slide:nth-child(4) {
+	background-image: url('img/red_wine_3.jpg');
+	background-position: 100% 0;
+}
+.slide {
+	display: none;
+}
+#btn-1:checked ~ .sliders .slide:nth-child(1) {
+	display: block;	
+}
+#btn-2:checked ~ .sliders .slide:nth-child(2) {
+	display: block;
+}
+#btn-3:checked ~ .sliders .slide:nth-child(3) {
+	display: block;
+}
+#btn-4:checked ~ .sliders .slide:nth-child(4) {
+	display: block;
+}
+/*input:checked ~ .sliders {
+	transition: transform 2s ease-out;
+	transform: translateX(-600px);
+}
+*/
